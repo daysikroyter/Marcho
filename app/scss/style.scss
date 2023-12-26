@@ -3,6 +3,199 @@
 @import 'reset';
 @import 'global';
 
+// header
 
+.nav {
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  gap: 0 35px;
+
+  &__link {
+    @extend %roboto-400;
+    color: $title;
+    padding: 0 2px 1px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.5s ease;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 1px;
+      position: absolute;
+      left: auto;
+      right: 0;
+      bottom: 0;
+      background-color: $accent;
+      transition: width 0.5s ease;
+    }
+
+    &--active {
+      color: $accent;
+    }
+
+    &--active::before {
+      width: 100%;
+    }
+
+    &:hover::before {
+      width: 100%;
+      right: auto;
+      left: 0;
+    }
+  }
+}
+
+.user-nav {
+  display: flex;
+  gap: 0 25px;
+
+  &__link {
+    position: relative;
+
+    path {
+      transition: fill 0.5s ease;
+    }
+
+    &:hover {
+      path {
+        fill: $accent;
+      }
+    }
+  }
+
+  &__num {
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    background-color: $accent;
+    position: absolute;
+    right: -14px;
+    top: -12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+  }
+}
+
+// footer
+
+.footer {
+  background-color: $bg;
+
+  &__top {
+    display: flex;
+    gap: 30px;
+    padding: 75px 0 40px;
+  }
+
+  &__item-contacts {
+    width: 250px;
+    margin-right: 20px;
+  }
+
+  &__item-nav {
+    width: 170px;
+  }
+
+  &__item-form {
+    max-width: 470px;
+  }
+
+  &__logo {
+    margin-bottom: 33px;
+  }
+
+  &__address,
+  &__email,
+  &__phone,
+  &__list-item:not(:last-child) {
+    margin-bottom: 14px;
+  }
+
+  &__phone {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    @extend %roboto-500;
+    font-size: 22px;
+    line-height: 1;
+    color: $title;
+    margin-bottom: 50px;
+  }
+
+  &__text {
+    margin-bottom: 25px;
+  }
+
+  &__input {
+    max-width: 320px;
+    width: 100%;
+    background-color: #fff;
+    padding: 12px 10px 12px 15px;
+    box-shadow: 0px 7px 20px 0px rgba(192, 192, 192, 0.3);
+
+    &::placeholder {
+      @extend %quicksand-500;
+      font-size: 16px;
+      color: $default;
+    }
+  }
+
+  &__btn {
+    @extend %roboto-400;
+    text-transform: uppercase;
+    background-color: $accent;
+    color: #fff;
+    padding: 12px 18px;
+    margin-left: 5px;
+    box-shadow: 0px 7px 20px 0px rgba(255, 17, 48, 0.3);
+  }
+
+  &__bottom {
+    height: 75px;
+    font-size: 12px;
+    border-top: 1px solid #ececec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__accept {
+    display: flex;
+    gap: 0 25px;
+  }
+}
+
+.social {
+  display: flex;
+  gap: 0 20px;
+  align-items: center;
+
+  &__link {
+    path {
+      transition: fill 0.5s ease;
+      fill: $default;
+    }
+
+    &:hover {
+      path {
+        fill: $accent;
+      }
+    }
+  }
+}
 
 @import 'media';
