@@ -3,6 +3,86 @@
 @import 'reset';
 @import 'global';
 
+.nav {
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.menu {
+  display: flex;
+  gap: 0 35px;
+
+  &__link {
+    @extend %roboto-400;
+    color: $title;
+    padding: 0 2px 8px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.5s ease;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 1px;
+      position: absolute;
+      left: auto;
+      right: 0;
+      bottom: 0;
+      background-color: $accent;
+      transition: width 0.5s ease;
+    }
+
+    &--active {
+      color: $accent;
+    }
+
+    &--active::before {
+      width: 100%;
+    }
+
+    &:hover::before {
+      width: 100%;
+      right: auto;
+      left: 0;
+    }
+  }
+}
+
+.user-nav {
+  display: flex;
+  gap: 0 25px;
+
+  &__link {
+    position: relative;
+
+    & path {
+      transition: fill 0.5s ease;
+    }
+
+    &:hover path {
+      fill: $accent;
+    }
+  }
+
+  &__num {
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    background-color: $accent;
+    position: absolute;
+    right: -14px;
+    top: -12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+  }
+}
 
 @import 'media';
